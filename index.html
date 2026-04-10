@@ -1,0 +1,633 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Book Center | Pre-order Books, Stationery & School Sets in Shikohabad</title>
+  <meta name="description" content="Student Book Center in Shikohabad offers fast pre-ordering for textbooks, stationery, and complete school book sets. Order online and pick up in-store without the wait!" />
+  
+  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/2436/2436636.png" type="image/png">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Student Book Center",
+    "image": "https://images.unsplash.com/photo-1497633762265-9d179a990aa6?auto=format&fit=crop&w=800&q=80",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Student Book Center",
+      "addressLocality": "Shikohabad",
+      "addressRegion": "Uttar Pradesh",
+      "addressCountry": "IN"
+    },
+    "telephone": "+91 94121 62542",
+    "openingHours": "Mo-Su 10:00-21:00",
+    "description": "Your trusted local bookstore since 1999. Quality books, stationery, and school supplies — ready for pickup."
+  }
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Playfair+Display:wght@700;900&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="marquee-container">
+  <div class="marquee-content">
+    <span><i class="fa-solid fa-bolt"></i> <strong>FLASH SALE:</strong> Pre-order April term sets today & skip the line!</span>
+    <span><i class="fa-solid fa-gift"></i> Add items worth ₹1500 to unlock a <strong>FREE Notebook!</strong></span>
+    <span><i class="fa-solid fa-person-running"></i> <strong>INSTANT PICKUP:</strong> Order online, collect in 30 minutes!</span>
+    <span><i class="fa-solid fa-bolt"></i> <strong>FLASH SALE:</strong> Pre-order April term sets today & skip the line!</span>
+    <span><i class="fa-solid fa-gift"></i> Add items worth ₹1500 to unlock a <strong>FREE Notebook!</strong></span>
+    <span><i class="fa-solid fa-person-running"></i> <strong>INSTANT PICKUP:</strong> Order online, collect in 30 minutes!</span>
+  </div>
+</div>
+
+<div class="mobile-top-bar">
+    <span class="brand" onclick="showPage('home')" style="font-size: 1.5rem;">Student <em style="color: var(--green);">Book</em> Center</span>
+    <div style="display: flex; align-items: center; gap: 12px;">
+        <button class="mic-btn-mob" onclick="startVoiceSearch()"><i class="fa-solid fa-microphone"></i></button>
+        <button onclick="toggleMobileMenu()" style="background:none; border:none; font-size:1.4rem; color:var(--navy);"><i class="fa-solid fa-bars"></i></button>
+    </div>
+</div>
+
+<div class="mobile-menu" id="mobileMenu">
+    <a href="javascript:void(0)" onclick="showPage('home');closeMobileMenu()"><i class="fa-solid fa-house"></i> Home</a>
+    <a href="javascript:void(0)" onclick="showPage('books');closeMobileMenu()"><i class="fa-solid fa-book"></i> Books</a>
+    <a href="javascript:void(0)" onclick="showPage('stationery');closeMobileMenu()"><i class="fa-solid fa-pen-ruler"></i> Stationery</a>
+    <a href="javascript:void(0)" onclick="showPage('sets');closeMobileMenu()"><i class="fa-solid fa-layer-group"></i> School Sets</a>
+    <a href="javascript:void(0)" onclick="showPage('contact');closeMobileMenu()"><i class="fa-solid fa-location-dot"></i> Contact Us</a>
+</div>
+
+<nav class="navbar" aria-label="Main Navigation">
+  <div class="nav-inner">
+    <span class="brand" onclick="showPage('home')" tabindex="0" role="button" aria-label="Go to Home">Student <em style="color: var(--green);">Book</em> Center</span>
+    <div class="nav-search">
+      <input type="text" id="navSearch" placeholder="Search books, stationery…" oninput="handleNavSearch(this.value)" aria-label="Search products" />
+      <i class="fa-solid fa-magnifying-glass"></i>
+    </div>
+    <ul class="nav-links">
+      <li><a href="javascript:void(0)" onclick="showPage('home')" class="active" id="nav-home">Home</a></li>
+      <li><a href="javascript:void(0)" onclick="showPage('books')" id="nav-books">Books</a></li>
+      <li><a href="javascript:void(0)" onclick="showPage('stationery')" id="nav-stationery">Stationery</a></li>
+      <li><a href="javascript:void(0)" onclick="showPage('sets')" id="nav-sets">School Sets</a></li>
+      <li><a href="javascript:void(0)" onclick="showPage('contact')" id="nav-contact">Contact</a></li>
+    </ul>
+    <button class="cart-btn ripple-btn" onclick="openCart()" aria-label="Open Cart" id="mainCartBtn">
+      <i class="fa-solid fa-bag-shopping" style="font-size:1.1rem;"></i> <span>Cart</span>
+      <span class="cart-count" id="cartCount">0</span>
+    </button>
+  </div>
+</nav>
+
+<div class="mobile-bottom-nav">
+  <div class="nav-item-mob active" id="mob-nav-home" onclick="showPage('home')">
+    <i class="fa-solid fa-house"></i><span>Home</span>
+  </div>
+  <div class="nav-item-mob" id="mob-nav-books" onclick="showPage('books')">
+    <i class="fa-solid fa-book"></i><span>Books</span>
+  </div>
+  <div class="nav-item-mob" id="mob-nav-stationery" onclick="showPage('stationery')">
+    <i class="fa-solid fa-pen-ruler"></i><span>Stationery</span>
+  </div>
+  <div class="nav-item-mob" id="mob-nav-sets" onclick="showPage('sets')">
+    <i class="fa-solid fa-layer-group"></i><span>Sets</span>
+  </div>
+  <div class="nav-item-mob" onclick="openCart()">
+    <i class="fa-solid fa-bag-shopping"></i><span>Cart</span>
+    <div class="cart-badge-mob" id="mobCartCount">0</div>
+  </div>
+</div>
+
+<div id="page-home" class="page active">
+  <section class="hero" aria-label="Hero Section">
+    <div class="hero-bg"></div>
+    <div class="hero-overlay"></div>
+    
+    <div class="particles">
+        <div class="particle" style="left: 10%; width: 40px; height: 40px; --duration: 15s; animation-delay: 0s;"></div>
+        <div class="particle" style="left: 30%; width: 80px; height: 80px; --duration: 22s; animation-delay: 2s;"></div>
+        <div class="particle" style="left: 60%; width: 20px; height: 20px; --duration: 12s; animation-delay: 5s;"></div>
+        <div class="particle" style="left: 80%; width: 60px; height: 60px; --duration: 18s; animation-delay: 1s;"></div>
+        <div class="particle" style="left: 95%; width: 30px; height: 30px; --duration: 14s; animation-delay: 7s;"></div>
+    </div>
+
+    <div class="hero-content">
+      <div class="hero-tag" data-aos="fade-down"><i class="fa-solid fa-fire" style="color:var(--accent);"></i> Term Season Sale is Live!</div>
+      <h1 data-aos="fade-up" data-aos-delay="100">Your <span class="accent" style="color: var(--green);">Books & Stationery,</span><br/>Ready for Pickup</h1>
+      <p data-aos="fade-up" data-aos-delay="200">Browse, pre-order, and pick up at our Shikohabad store. All orders securely completed via WhatsApp.</p>
+      <div class="hero-search" data-aos="fade-up" data-aos-delay="300" style="position: relative;">
+        <input type="text" id="heroSearch" placeholder="Search for textbooks, notebooks, pens…" oninput="handleHeroSearch(this.value)" aria-label="Search" />
+        <button class="mic-btn" onclick="startVoiceSearch()" title="Search by Voice"><i class="fa-solid fa-microphone"></i></button>
+        <button class="search-btn ripple-btn" onclick="doHeroSearch()">Search</button>
+      </div>
+      <div class="hero-stats" data-aos="fade-up" data-aos-delay="400">
+        <div class="stat"><strong>500+</strong><span>Products</span></div>
+        <div class="stat"><strong>10k+</strong><span>Students</span></div>
+        <div class="stat"><strong>25+</strong><span>Years</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="categories" aria-labelledby="category-heading">
+    <div class="container">
+      <div class="badge" data-aos="fade-up">Browse by Category</div>
+      <div class="section-header" data-aos="fade-up">
+        <h2 class="section-title" id="category-heading">What are you looking for?</h2>
+      </div>
+      <p class="section-sub" data-aos="fade-up">Find everything a student needs, all in one place.</p>
+      <div class="cat-grid">
+        <div class="cat-card" onclick="showPage('books')" role="button" tabindex="0" data-aos="fade-up" data-aos-delay="100">
+          <img src="https://images.unsplash.com/photo-1512820790803-83ca734da794?auto=format&fit=crop&w=600&q=80" alt="Shelves of books at Student Book Center" loading="lazy" />
+          <div class="cat-overlay">
+            <div class="cat-label">Category</div>
+            <div class="cat-title">Books</div>
+            <div class="cat-cta">Browse Books <i class="fa-solid fa-arrow-right"></i></div>
+          </div>
+        </div>
+        <div class="cat-card" onclick="showPage('stationery')" role="button" tabindex="0" data-aos="fade-up" data-aos-delay="200">
+          <img src="https://images.unsplash.com/photo-1513542789411-b6a5d4f31634?auto=format&fit=crop&w=600&q=80" alt="Stationery products at Student Book Center" loading="lazy" />
+          <div class="cat-overlay">
+            <div class="cat-label">Category</div>
+            <div class="cat-title">Stationery</div>
+            <div class="cat-cta">Browse Stationery <i class="fa-solid fa-arrow-right"></i></div>
+          </div>
+        </div>
+        <div class="cat-card" onclick="showPage('sets')" role="button" tabindex="0" data-aos="fade-up" data-aos-delay="300">
+          <img src="https://images.unsplash.com/photo-1452860606245-08befc0ff44b?auto=format&fit=crop&w=600&q=80" alt="School book sets at Student Book Center" loading="lazy" />
+          <div class="cat-overlay">
+            <div class="cat-label">Builder</div>
+            <div class="cat-title">School Book Sets</div>
+            <div class="cat-cta">Build Your Set <i class="fa-solid fa-arrow-right"></i></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="featured">
+    <div class="container">
+      <div class="badge" data-aos="fade-up">Handpicked for You</div>
+      <div class="section-header" data-aos="fade-up">
+        <h2 class="section-title">Back-to-School Specials</h2>
+        <button class="view-all ripple-btn" onclick="showPage('books')">View all <i class="fa-solid fa-arrow-right"></i></button>
+      </div>
+      <p class="section-sub" data-aos="fade-up">Bestsellers and new arrivals for the upcoming term.</p>
+      <div class="products-grid" id="featuredGrid" data-aos="fade-up"></div>
+    </div>
+  </section>
+  
+  <section class="testimonials">
+    <div class="container">
+      <div class="badge" data-aos="fade-up" style="margin: 0 auto; display: block; width: fit-content;">Community Trust</div>
+      <h2 class="section-title" data-aos="fade-up" style="text-align: center;">What Parents & Students Say</h2>
+      <p class="section-sub" data-aos="fade-up" style="text-align: center;">Proudly serving Shikohabad since 1999.</p>
+      
+      <div class="test-grid">
+          <div class="test-card" data-aos="fade-up" data-aos-delay="100">
+              <i class="fa-solid fa-quote-left"></i>
+              <div class="test-content">"The WhatsApp pre-order system is a lifesaver! I just send my cart details directly from the website and pick it up the next day. Amazing service."</div>
+              <div class="test-author">
+                  <div class="test-avatar"><img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=150&q=80" alt="Priya Sharma"></div>
+                  <div>
+                      <div class="test-name">Priya Sharma</div>
+                      <div class="test-role">Parent (Class 5)</div>
+                  </div>
+              </div>
+          </div>
+          <div class="test-card" data-aos="fade-up" data-aos-delay="200">
+              <i class="fa-solid fa-quote-left"></i>
+              <div class="test-content">"Student Book Center has always been our go-to shop. They never run out of the specific reference guides we need, and the quality of their notebooks is top-notch."</div>
+              <div class="test-author">
+                  <div class="test-avatar" style="background:#e0f2fe; color:var(--primary);"><img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=150&q=80" alt="Rahul Verma"></div>
+                  <div>
+                      <div class="test-name">Rahul Verma</div>
+                      <div class="test-role">Class 11 Student</div>
+                  </div>
+              </div>
+          </div>
+          <div class="test-card" data-aos="fade-up" data-aos-delay="300">
+              <i class="fa-solid fa-quote-left"></i>
+              <div class="test-content">"I've been buying from them since I was in school. Trustworthy, fair prices, and the new WhatsApp integration makes everything so much faster."</div>
+              <div class="test-author">
+                  <div class="test-avatar" style="background:#fce7f3; color:#c026d3;"><img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?auto=format&fit=crop&w=150&q=80" alt="Sneha Gupta"></div>
+                  <div>
+                      <div class="test-name">Sneha Gupta</div>
+                      <div class="test-role">Local Teacher</div>
+                  </div>
+              </div>
+          </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-images" data-aos="fade-right">
+          <div class="img-main">
+            <img src="https://images.unsplash.com/photo-1507842217343-583bb7270b66?auto=format&fit=crop&w=800&q=80" alt="Interior counter of Student Book Center store" loading="lazy" />
+          </div>
+          <div class="img-sub">
+            <img src="https://images.unsplash.com/photo-1544716278-ca5e3f4abd8c?auto=format&fit=crop&w=400&q=80" alt="Books Collection" loading="lazy" />
+            <img src="https://images.unsplash.com/photo-1456735190827-d1262f71b8a3?auto=format&fit=crop&w=400&q=80" alt="Store Interior" loading="lazy" />
+          </div>
+        </div>
+        <div class="about-content" data-aos="fade-left">
+          <div class="badge">Our Story</div>
+          <h2 class="section-title">Serving Students Since 1999</h2>
+          <p>Student Book Center has been the go-to local bookstore for students, parents, and educators across Shikohabad since 1999. We believe every child deserves easy access to quality educational resources.</p>
+          <p>From textbooks to stationery, we stock everything you need for a successful school year — and with our newly upgraded WhatsApp ordering system, your materials are just a click away.</p>
+          <div class="about-info">
+            <div class="info-row">
+              <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
+              <div><strong>Location</strong><span>Student Book Center, Shikohabad, Uttar Pradesh</span></div>
+            </div>
+            <div class="info-row">
+              <div class="info-icon"><i class="fa-solid fa-clock"></i></div>
+              <div><strong>Store Hours</strong><span>Monday – Sunday: 10:00 AM – 9:00 PM</span></div>
+            </div>
+            <div class="info-row">
+              <div class="info-icon"><i class="fa-brands fa-whatsapp"></i></div>
+              <div><strong>WhatsApp Ordering</strong><span>+91 94121 62542</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <section class="community-banner" data-aos="fade-up">
+    <div class="community-inner">
+      <div class="badge" style="background:rgba(255,255,255,0.15);color:white;"><i class="fa-brands fa-whatsapp"></i> Join the Community</div>
+      <h2>Get Exclusive Term Offers on WhatsApp</h2>
+      <p>Connect with us directly on WhatsApp to get instant updates on new book arrivals, flash sales, and school set availability.</p>
+      <a href="https://wa.me/919412162542?text=Hi!%20I%20want%20to%20get%20updates%20about%20new%20books%20and%20offers." target="_blank" class="ripple-btn whatsapp-join-btn">
+        <i class="fa-brands fa-whatsapp"></i> Message Us for Updates
+      </a>
+    </div>
+  </section>
+</div>
+
+<div id="page-books" class="page">
+  <div class="cat-page">
+    <div class="container">
+      <div class="cat-page-header" data-aos="fade-up">
+        <div class="badge" style="background:rgba(255,255,255,0.15);color:white;">📚 All Books</div>
+        <h1>Books Collection</h1>
+        <p>Textbooks, story books, guides, and more — for every grade.</p>
+      </div>
+      <div class="filter-bar" data-aos="fade-up">
+        <span class="filter-label">Filter:</span>
+        <button class="filter-btn active ripple-btn" onclick="filterProducts('books','all',this)">All</button>
+        <button class="filter-btn ripple-btn" onclick="filterProducts('books','school',this)">School Textbooks</button>
+        <button class="filter-btn ripple-btn" onclick="filterProducts('books','kids',this)">Kids & Story</button>
+        <button class="filter-btn ripple-btn" onclick="filterProducts('books','guide',this)">Guides & References</button>
+      </div>
+      <div class="products-grid" id="booksGrid" data-aos="fade-up"></div>
+    </div>
+  </div>
+</div>
+
+<div id="page-stationery" class="page">
+  <div class="cat-page">
+    <div class="container">
+      <div class="cat-page-header" data-aos="fade-up">
+        <div class="badge" style="background:rgba(255,255,255,0.15);color:white;">✏️ All Stationery</div>
+        <h1>Stationery & Supplies</h1>
+        <p>Pens, notebooks, art supplies, and every classroom essential.</p>
+      </div>
+      <div class="filter-bar" data-aos="fade-up">
+        <span class="filter-label">Filter:</span>
+        <button class="filter-btn active ripple-btn" onclick="filterProducts('stationery','all',this)">All</button>
+        <button class="filter-btn ripple-btn" onclick="filterProducts('stationery','writing',this)">Writing</button>
+        <button class="filter-btn ripple-btn" onclick="filterProducts('stationery','art',this)">Art & Craft</button>
+        <button class="filter-btn ripple-btn" onclick="filterProducts('stationery','notebooks',this)">Notebooks</button>
+      </div>
+      <div class="products-grid" id="stationeryGrid" data-aos="fade-up"></div>
+    </div>
+  </div>
+</div>
+
+<div id="page-sets" class="page">
+  <div class="cat-page">
+    <div class="container">
+      <div class="cat-page-header" data-aos="fade-up">
+        <div class="badge" style="background:rgba(255,255,255,0.15);color:white;">📦 Complete Packages</div>
+        <h1>Build Your School Book Set</h1>
+        <p>Select your school and class to get the exact bundle you need for the new term.</p>
+      </div>
+      
+      <div class="sets-builder" data-aos="fade-up">
+        <div class="builder-progress" id="builderProgress">
+           <div class="b-dot active">1</div>
+           <div class="b-dot">2</div>
+        </div>
+
+        <div class="builder-row">
+          <div class="builder-step">
+            <label for="schoolSelect"><i class="fa-solid fa-school"></i> Select Your School</label>
+            <select id="schoolSelect" onchange="triggerLoader()" aria-label="Select School">
+              <option value="">-- Choose School --</option>
+              <option value="St. Mary's Academy">St. Mary's Academy</option>
+              <option value="Delhi Public School (DPS)">Delhi Public School (DPS)</option>
+              <option value="Kendriya Vidyalaya">Kendriya Vidyalaya</option>
+              <option value="Local Public School">Local Public School</option>
+            </select>
+          </div>
+          <div class="builder-step">
+            <label for="classSelect"><i class="fa-solid fa-graduation-cap"></i> Select Your Class</label>
+            <select id="classSelect" onchange="triggerLoader()" aria-label="Select Class">
+              <option value="">-- Choose Class --</option>
+              <option value="Class 1">Class 1</option>
+              <option value="Class 5">Class 5</option>
+              <option value="Class 8">Class 8</option>
+              <option value="Class 10">Class 10</option>
+              <option value="Class 12 (Science)">Class 12 (Science)</option>
+              <option value="Class 12 (Commerce)">Class 12 (Commerce)</option>
+            </select>
+          </div>
+        </div>
+        
+        <div class="loader-container" id="setsLoader">
+            <div class="spinner"></div>
+            <p style="color: var(--gray); font-weight: 800; font-size:1.1rem;">Fetching official curriculum...</p>
+        </div>
+
+        <div id="setsResult" class="hidden">
+          <div class="set-result-card" data-aos="fade-up">
+            <div>
+              <div class="badge" style="margin-bottom: 12px; background:var(--navy); color:white;">Bundle Found</div>
+              <h3 id="setDynamicName">Complete Book Set</h3>
+            </div>
+            
+            <div class="bundle-section">
+                <h4><i class="fa-solid fa-book"></i> Books Included (Mandatory)</h4>
+                <p class="section-desc">These are the core textbooks specified by your school.</p>
+                <div class="bundle-grid" id="mandatoryBooksList"></div>
+            </div>
+
+            <div class="bundle-section">
+                <h4><i class="fa-solid fa-pen-ruler"></i> Optional Stationery Add-ons</h4>
+                <p class="section-desc">Select any additional supplies you need for the term.</p>
+                <div class="bundle-grid" id="optionalStationeryList"></div>
+            </div>
+            
+            <input type="hidden" id="setBasePrice" value="0">
+            
+            <div class="set-result-footer">
+              <div class="set-total-price">
+                <span>Total:</span> <span id="setDynamicPrice">₹0</span>
+              </div>
+              <button class="add-btn ripple-btn" onclick="addCustomSetToCart(event)" style="font-size: 1.2rem; padding: 18px 40px; background: var(--primary); color: white; border-radius:50px; box-shadow: 0 10px 25px rgba(30, 58, 138, 0.4);">
+                Add Bundle to Cart <i class="fa-solid fa-cart-arrow-down" style="margin-left: 8px;"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div id="page-search" class="page">
+  <div class="search-results-section">
+    <div class="container">
+      <div class="badge">Search Results</div>
+      <h2 class="section-title" id="searchTitle">Results for ""</h2>
+      <p class="section-sub" id="searchCount">0 products found</p>
+      <div class="products-grid" id="searchGrid"></div>
+    </div>
+  </div>
+</div>
+
+<div id="page-contact" class="page">
+  <div class="cat-page">
+    <div class="container">
+      <div class="cat-page-header" data-aos="fade-up">
+        <div class="badge" style="background:rgba(255,255,255,0.15);color:white;">📍 Find Us</div>
+        <h1>Contact & Store Info</h1>
+        <p>We're always happy to help! Come visit us or reach out on WhatsApp.</p>
+      </div>
+      <div class="about-grid" style="margin-bottom:48px">
+        <div data-aos="fade-right">
+          <div class="about-info">
+            <div class="info-row">
+              <div class="info-icon"><i class="fa-solid fa-map-location-dot"></i></div>
+              <div><strong>Address</strong><span>Student Book Center,<br/>Shikohabad, Uttar Pradesh, India</span></div>
+            </div>
+            <div class="info-row">
+              <div class="info-icon"><i class="fa-solid fa-clock"></i></div>
+              <div><strong>Store Hours</strong><span>Monday – Sunday: 10:00 AM – 9:00 PM</span></div>
+            </div>
+            <div class="info-row">
+              <div class="info-icon" style="background:#e8faf0; color:#25D366;"><i class="fa-brands fa-whatsapp"></i></div>
+              <div><strong>WhatsApp Support</strong><span>+91 94121 62542</span></div>
+            </div>
+            <div class="info-row">
+              <div class="info-icon"><i class="fa-solid fa-envelope"></i></div>
+              <div><strong>Email</strong><span>studentbookcenter08@gmail.com</span></div>
+            </div>
+            <div class="info-row">
+              <div class="info-icon"><i class="fa-solid fa-box-open"></i></div>
+              <div><strong>Pickup Policy</strong><span>Once your WhatsApp order is confirmed, you can pick it up directly from the store.</span></div>
+            </div>
+            
+            <div class="info-row" style="margin-top: 12px; border-top: 1px solid #e2e8f0; padding-top: 20px; background: transparent; border:none; box-shadow:none;">
+              <div style="width: 100%;">
+                <strong style="margin-bottom: 16px; display: block; color: var(--navy); font-size:1.1rem;">Connect With Us</strong>
+                <div class="social-links" style="gap: 16px;">
+                  <a class="social-link" href="https://www.facebook.com/people/Student-Book-Center-School-Junction/100063887959734/" target="_blank" title="Facebook" style="background: var(--navy); color: white; width: 48px; height: 48px; font-size: 1.3rem;"><i class="fa-brands fa-facebook-f"></i></a>
+                  <a class="social-link" href="https://www.instagram.com/officialstudentbookcenter.skb/reels/" target="_blank" title="Instagram" style="background: var(--navy); color: white; width: 48px; height: 48px; font-size: 1.3rem;"><i class="fa-brands fa-instagram"></i></a>
+                  <a class="social-link" href="https://www.youtube.com/@StudentBookCenter-i7h" target="_blank" title="YouTube" style="background: var(--navy); color: white; width: 48px; height: 48px; font-size: 1.3rem;"><i class="fa-brands fa-youtube"></i></a>
+                  <a class="social-link" href="https://www.google.com/search?q=student+book+center+shikohabad" target="_blank" title="Google Search" style="background: var(--navy); color: white; width: 48px; height: 48px; font-size: 1.3rem;"><i class="fa-brands fa-google"></i></a>
+                  <a class="social-link" href="mailto:studentbookcenter08@gmail.com" title="Email" style="background: var(--navy); color: white; width: 48px; height: 48px; font-size: 1.3rem;"><i class="fa-solid fa-envelope"></i></a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div style="display: flex; flex-direction: column; gap: 20px; height: 100%;" data-aos="fade-left">
+          <div class="map-container" style="padding: 0; flex: 1; min-height: 380px;">
+            <iframe 
+                src="https://maps.google.com/maps?q=Student%20Book%20Center,%20Shikohabad&t=&z=16&ie=UTF8&iwloc=&output=embed" 
+                width="100%" 
+                height="100%" 
+                style="border:0; position: absolute; inset: 0;" 
+                allowfullscreen="" 
+                loading="lazy" 
+                referrerpolicy="no-referrer-when-downgrade"
+                title="Google Maps Location for Student Book Center">
+            </iframe>
+          </div>
+          <a href="https://www.google.com/maps/place/Student+Book+Center/data=!4m2!3m1!1s0x0:0xaca22ef25aa4387?sa=X&ved=1t:2428&ictx=111" target="_blank" class="ripple-btn" style="display:flex; justify-content:center; align-items:center; background:var(--primary);color:white;padding:18px 24px;border-radius:16px;font-weight:900;font-size:1.1rem;text-align:center; transition:transform 0.2s; box-shadow:0 8px 20px rgba(30, 58, 138, 0.3);">
+              <i class="fa-solid fa-diamond-turn-right" style="margin-right: 12px; font-size: 1.4rem;"></i> Get Driving Directions
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<a href="https://wa.me/919412162542?text=Hello%20Student%20Book%20Center!%20I%20need%20help." target="_blank" class="whatsapp-fab" aria-label="Chat on WhatsApp">
+  <i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <span class="brand">Student <em style="color: var(--green);">Book</em> Center</span>
+        <p>Your trusted local bookstore since 1999. Quality books, stationery, and school supplies — natively available on WhatsApp.</p>
+      </div>
+      <div>
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="javascript:void(0)" onclick="showPage('home')">Home</a></li>
+          <li><a href="javascript:void(0)" onclick="showPage('books')">Books</a></li>
+          <li><a href="javascript:void(0)" onclick="showPage('stationery')">Stationery</a></li>
+          <li><a href="javascript:void(0)" onclick="showPage('sets')">School Sets</a></li>
+        </ul>
+      </div>
+      <div>
+        <h4>Store Info</h4>
+        <ul>
+          <li><a href="javascript:void(0)">Student Book Center</a></li>
+          <li><a href="javascript:void(0)">Shikohabad, Uttar Pradesh</a></li>
+          <li><a href="tel:+919412162542">+91 94121 62542</a></li>
+          <li><a href="javascript:void(0)" onclick="showPage('contact')">Contact Us</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Student Book Center. All rights reserved.</p>
+      <div class="social-links">
+        <a class="social-link" href="https://www.facebook.com/people/Student-Book-Center-School-Junction/100063887959734/" target="_blank" title="Facebook"><i class="fa-brands fa-facebook-f"></i></a>
+        <a class="social-link" href="https://www.instagram.com/officialstudentbookcenter.skb/reels/" target="_blank" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+        <a class="social-link" href="https://www.youtube.com/@StudentBookCenter-i7h" target="_blank" title="YouTube"><i class="fa-brands fa-youtube"></i></a>
+        <a class="social-link" href="https://www.google.com/search?q=student+book+center+shikohabad" target="_blank" title="Google Search"><i class="fa-brands fa-google"></i></a>
+        <a class="social-link" href="mailto:studentbookcenter08@gmail.com" title="Email"><i class="fa-solid fa-envelope"></i></a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<div class="qv-overlay" id="qvOverlay" onclick="closeQuickViewOnOverlay(event)">
+  <div class="qv-modal" id="qvModal">
+    <button class="qv-close" onclick="closeQuickView()"><i class="fa-solid fa-xmark"></i></button>
+    <div class="qv-img-container">
+      <img id="qvImg" src="" alt="Product Image">
+    </div>
+    <div class="qv-details">
+      <div class="qv-cat" id="qvCat"><i class="fa-solid fa-tag"></i> Category</div>
+      <h2 class="qv-title" id="qvName">Product Name</h2>
+      
+      <div class="qv-price-wrap">
+        <div class="qv-price" id="qvPrice">₹0</div>
+        <div class="qv-mrp" id="qvMrp">₹0</div>
+        <div class="qv-discount" id="qvDiscount">0% OFF</div>
+      </div>
+      
+      <p class="qv-desc" id="qvDesc">Product description goes here.</p>
+      
+      <ul class="qv-features">
+        <li><i class="fa-solid fa-circle-check"></i> 100% Original & Authentic</li>
+        <li><i class="fa-solid fa-store"></i> Ready for In-Store Pickup</li>
+        <li><i class="fa-solid fa-rotate-left"></i> Easy 7-Day Replacement</li>
+      </ul>
+      
+      <div class="qv-action">
+        <button class="qv-add-btn ripple-btn" id="qvAddBtn" onclick="">
+           <i class="fa-solid fa-cart-plus"></i> Add to Cart
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="cart-overlay" id="cartOverlay" onclick="closeCartOnOverlay(event)">
+  <div class="cart-panel" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+    <div class="cart-header">
+      <div class="cart-header-top">
+        <h2 id="cartTitle"><i class="fa-solid fa-basket-shopping" style="color:var(--primary);"></i> Your Cart</h2>
+        <button class="close-btn" onclick="closeCart()" aria-label="Close Cart"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div class="cart-promo-container" id="cartPromoContainer">
+          <div class="cart-promo-text" id="cartPromoText">Add items worth ₹1500 to unlock a <strong>Free Notebook!</strong></div>
+          <div class="cart-progress-bg">
+              <div class="cart-progress-bar" id="cartProgressBar"></div>
+          </div>
+      </div>
+    </div>
+    <div class="cart-items" id="cartItemsContainer">
+      <div class="cart-empty" id="cartEmpty">
+        <div class="cart-empty-blob"><img src="https://images.unsplash.com/photo-1555529733-0e670560f7e1?auto=format&fit=crop&w=300&q=80" alt="Empty Cart Basket"></div>
+        <p>Your cart is empty</p>
+        <p style="font-size:0.95rem;margin-top:8px; font-weight: 600;">Looks like you haven't added anything yet.</p>
+        <button class="add-btn ripple-btn" onclick="closeCart(); showPage('books')" style="margin-top: 24px; padding: 16px 32px; border-radius:50px;">Start Shopping</button>
+      </div>
+    </div>
+    <div class="cart-footer" id="cartFooter" style="display:none">
+      <div class="cart-subtotal">
+        <span>Subtotal</span>
+        <span id="cartSubtotal">₹0</span>
+      </div>
+      <button class="checkout-btn ripple-btn" style="background:#25D366; box-shadow: 0 10px 25px rgba(37, 211, 102, 0.4);" onclick="openCheckout()">Checkout via WhatsApp <i class="fa-brands fa-whatsapp" style="margin-left: 8px; font-size: 1.3rem;"></i></button>
+    </div>
+  </div>
+</div>
+
+<div class="checkout-overlay" id="checkoutOverlay">
+  <div class="checkout-modal" id="checkoutModal" role="dialog" aria-modal="true">
+    
+    <div id="checkoutStep1">
+      <h2><i class="fa-brands fa-whatsapp" style="color:#25D366;"></i> Send Order</h2>
+      <p class="step-desc">Who should we prepare this order for?</p>
+      
+      <div class="form-group" id="fg-name">
+        <label for="fname">Full Name *</label>
+        <input type="text" id="fname" placeholder="e.g., Priya Sharma" aria-required="true" />
+        <i class="fa-regular fa-user input-icon"></i>
+        <div class="error-msg"><i class="fa-solid fa-circle-exclamation"></i> Please enter your name.</div>
+      </div>
+      <div class="form-group" id="fg-phone">
+        <label for="fphone">WhatsApp Number *</label>
+        <input type="tel" id="fphone" placeholder="+91 94121 62542" aria-required="true" />
+        <i class="fa-solid fa-mobile-screen-button input-icon"></i>
+        <div class="error-msg"><i class="fa-solid fa-circle-exclamation"></i> Please enter a valid 10-digit number.</div>
+      </div>
+
+      <div class="order-summary-mini" id="miniSummary" style="margin-top: 20px; background: var(--light); padding: 15px; border-radius: 12px; border: 1px dashed #cbd5e1;"></div>
+
+      <div class="checkout-actions">
+          <button class="btn-back ripple-btn" onclick="closeCheckout()">Cancel</button>
+          <button class="btn-whatsapp ripple-btn" onclick="submitWhatsAppOrder()"><i class="fa-brands fa-whatsapp" style="font-size:1.2rem;"></i> Open WhatsApp</button>
+      </div>
+    </div>
+    
+    <div id="checkoutConfirm" class="confirm-view hidden">
+      <div class="confirm-icon"><i class="fa-solid fa-check-double"></i></div>
+      <h2>Sent to WhatsApp!</h2>
+      <p>Your order details have been forwarded to our WhatsApp.</p>
+      <p style="margin-top:12px;font-size:0.95rem; font-weight: 700; color:var(--gray);">Please wait for our reply to confirm your order.</p>
+      <button class="done-btn ripple-btn" onclick="finishOrder()">Continue Shopping</button>
+    </div>
+  </div>
+</div>
+
+<div class="toast" id="toast" role="alert" aria-live="assertive">
+  <span class="toast-icon" id="toastIcon"><i class="fa-solid fa-check"></i></span>
+  <span id="toastMsg">Added to cart!</span>
+</div>
+
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+<script src="script.js"></script>
+
+</body>
+</html>
